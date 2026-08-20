@@ -54,3 +54,6 @@ Step 6: Observe any hidden text appended to the image
 At the very end, you should see your readable message: SECRET MESSAGE: exam2026
 
 Expected output (per manual): hidden text, if present, is displayed at the end of the file.
+
+
+B.3 StegOnline
