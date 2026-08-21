@@ -118,3 +118,58 @@ id
 uname -a
 
 That's the full exploit chain. Go ahead and start with Step 1–2 (boot the VM, find its IP) and tell me what nmap -sV -p 21 <IP> shows once you've got the address.
+
+
+
+
+
+
+
+
+
+Burp Suite: 
+
+Practical 3: Brute Force Attack on DVWA Using Burp Suite
+
+1. Start the DVWA machine and Kali Linux. Make sure they can reach each other on the network.
+
+2. Open Firefox → go to http://<DVWA_IP>/dvwa
+
+3. Log in with admin / password
+
+4. Go to DVWA Security (sidebar) → set Security Level to Low → click Submit
+
+5. Go to Brute Force (sidebar)
+
+6. Open Burp Suite → confirm the proxy listener is running on 127.0.0.1:8080
+
+7. Set Firefox to use 127.0.0.1:8080 as its proxy
+
+8. In Burp, go to Proxy → Intercept → turn Intercept ON
+
+9. Back in DVWA's Brute Force form, type admin / test → click Login
+
+10. Switch to Burp — the request should be sitting in Intercept. Right-click it → Send to Intruder
+
+11. In Intruder → Positions tab:
+
+Click Clear
+Highlight only the password value in the request
+Click Add
+Set Attack Type to Sniper
+
+12. Go to Payloads tab:
+
+Payload type: Simple list
+Add these passwords, one per line:
+     123456
+     admin
+     password
+     welcome
+     password123
+
+13. Click Start Attack
+
+14. In the results table, check the Length column. Sort by it if needed. Most failed attempts will show the same length (e.g. 4832) — the one row with a different length (e.g. 5120) is the successful login.
+
+15. That password (password in the standard DVWA setup) is your cracked credential.
