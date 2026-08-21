@@ -173,3 +173,39 @@ Add these passwords, one per line:
 14. In the results table, check the Length column. Sort by it if needed. Most failed attempts will show the same length (e.g. 4832) — the one row with a different length (e.g. 5120) is the successful login.
 
 15. That password (password in the standard DVWA setup) is your cracked credential.
+
+
+
+
+Practical 2 - B.2:
+Practical 2 — B.2: Image Steganography Using Stegosuite (Kali Linux)
+
+1. Open the Terminal
+
+2. Launch Stegosuite:
+
+stegosuite
+
+3. In the window that opens, click File → Open (or drag an image into it)
+
+4. Select an image (any .png or .jpg)
+
+5. Go to the Embed tab
+
+6. Type your secret message in the message box, e.g. HIDDEN DATA FOR EXAM
+
+7. Enter a passphrase, e.g. exam123
+
+8. Click Embed
+
+9. Save the modified image when prompted (e.g. test_stego.png)
+
+10. Reopen that saved image — File → Open → select test_stego.png
+
+11. Go to the Extract tab
+
+12. Enter the same passphrase (exam123)
+
+13. Click Extract
+
+14. Your original message (HIDDEN DATA FOR EXAM) should reappear, confirming the embed/extract worked.
